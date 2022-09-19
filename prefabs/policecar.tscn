@@ -215,7 +215,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0.81 )
 mesh = SubResource( 3 )
 
 [node name="wheel_frontLeft" type="MeshInstance" parent="police"]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0.3, -0.81 )
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.3, 0.3, -0.81 )
 mesh = SubResource( 3 )
 
 [node name="wheel_frontRight" type="MeshInstance" parent="police"]

@@ -5,11 +5,16 @@ extends KinematicBody
 export var gravity = -20.0
 export var wheel_base = 0.6  # distance between front/rear axles
 export var steering_limit = 10.0  # front wheel max turning angle (deg)
-export var engine_power = 6.0
+export var engine_power = 10.0
 export var braking = -9.0
 export var friction = -2.0
 export var drag = -2.0
 export var max_speed_reverse = 3.0
+export var slip_speed = 9.0
+export var traction_slow = 0.75
+export var traction_fast = 0.02
+
+var drifting = false
 
 # Car state properties
 var acceleration = Vector3.ZERO  # current acceleration
@@ -40,9 +45,16 @@ func calculate_steering(delta):
 	front_wheel += velocity.rotated(transform.basis.y, steer_angle) * delta
 	var new_heading = rear_wheel.direction_to(front_wheel)
 
+	# traction
+	if not drifting and velocity.length() > slip_speed:
+		drifting = true
+	if drifting and velocity.length() < slip_speed and steer_angle == 0:
+		drifting = false
+	var traction = traction_fast if drifting else traction_slow
+
 	var d = new_heading.dot(velocity.normalized())
 	if d > 0:
-		velocity = new_heading * velocity.length()
+		velocity = lerp(velocity, new_heading * velocity.length(), traction)
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	look_at(transform.origin + new_heading, transform.basis.y)
@@ -52,7 +64,7 @@ func get_input():
 	turn -= Input.get_action_strength("steer_right")
 	steer_angle = turn * deg2rad(steering_limit)
 	get_child(0).find_node("wheel_frontRight").rotation.y = steer_angle*2
-	get_child(0).find_node("wheel_frontLeft").rotation.y = steer_angle*2
+	get_child(0).find_node("wheel_frontLeft").rotation.y = PI + steer_angle*2
 	acceleration = Vector3.ZERO
 	if Input.is_action_pressed("accelerate"):
 		acceleration = -transform.basis.z * engine_power

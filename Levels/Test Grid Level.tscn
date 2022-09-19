@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/Racetrack Mesh Libary.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://Prefabs/policecar.tscn" type="PackedScene" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="policecar" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7092, 3.15244, -1.00956 )
+
+[node name="Camera" type="Camera" parent="policecar"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16978, 6.02313 )
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 20, 5, 20 )
+cell_octant_size = 4
+cell_scale = 20.0
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 655360, 1, 1, 655360, 2, 2, 1441794, 65539, 2, 1441794, 131076, 2, 1441792, 131077, 2, 1441792, 1, 3, 1048580, 2, 3, 1048576, 3, 65527, 1441792, 4, 65527, 1441792, 0, 65530, 3, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
