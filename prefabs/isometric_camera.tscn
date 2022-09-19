@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/isometric_camera.gd" type="Script" id=1]
+
+[node name="isometric_camera" type="Camera"]
+transform = Transform( 0.761562, -0.373099, 0.529925, 0, 0.817669, 0.575688, -0.648092, -0.438422, 0.622706, 12.0048, 13.5796, 14.5134 )
+current = true
+near = 0.01
+far = 8192.0
+script = ExtResource( 1 )
+target_node = NodePath("../coolcar")

@@ -15,8 +15,8 @@ onready var back_right_wheel : VehicleWheel = $back_right_wheel
 
 func _process(delta: float) -> void:
 	#lerp the input values for smoother input
-	steer_input = lerp(steer_input, Input.get_axis("steer_right","steer_left") * 0.4, 0.5)
-	throttle_input = lerp(throttle_input, Input.get_action_strength("accelerate"),0.5)
+	steer_input = lerp(steer_input, Input.get_axis("steer_right","steer_left") * 0.4, 0.25)
+	throttle_input = lerp(throttle_input, Input.get_action_strength("accelerate"),0.25)
 	brake_input = lerp(brake_input, Input.get_action_strength("brake") * brake_power, 0.5)
 
 
