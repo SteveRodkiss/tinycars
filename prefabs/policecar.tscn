@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Car Models/plastic.material" type="Material" id=1]
 [ext_resource path="res://Assets/Car Models/_defaultMat.material" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Car Models/window.material" type="Material" id=6]
 [ext_resource path="res://Assets/Car Models/lightBlue.material" type="Material" id=7]
 [ext_resource path="res://Assets/Car Models/paintWhite.material" type="Material" id=8]
+[ext_resource path="res://Scripts/Player Script.gd" type="Script" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "police_Mesh body"
@@ -187,9 +188,13 @@ surfaces/1 = {
 }
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.762925, 0.624053, 1.50547 )
+extents = Vector3( 0.762925, 0.624053, 1.35522 )
+
+[sub_resource type="CylinderShape" id=5]
+height = 1.76176
 
 [node name="policecar" type="KinematicBody"]
+script = ExtResource( 9 )
 
 [node name="police" type="Spatial" parent="."]
 
@@ -217,6 +222,14 @@ mesh = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, -0.81 )
 mesh = SubResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624622, 0 )
+[node name="Collision Body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.650476, 0, 0, 0, 1, 0, 0.680496, 0.11574 )
 shape = SubResource( 4 )
+
+[node name="CollisionFrontWheels" type="CollisionShape" parent="."]
+transform = Transform( -3.01004e-08, 0.688616, -3.01004e-08, 0, -1.08022e-08, -0.247126, -0.247126, -1.08022e-08, 4.72179e-16, 0, 0.29519, -0.820596 )
+shape = SubResource( 5 )
+
+[node name="CollisionRearWheels" type="CollisionShape" parent="."]
+transform = Transform( -3.01004e-08, 0.688616, -3.01004e-08, 0, -1.08022e-08, -0.247126, -0.247126, -1.08022e-08, 4.72179e-16, 0, 0.29519, 0.820923 )
+shape = SubResource( 5 )
