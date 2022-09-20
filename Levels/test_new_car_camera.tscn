@@ -7,6 +7,7 @@
 [node name="test_new_car" type="Spatial"]
 
 [node name="isometric_camera" parent="." instance=ExtResource( 2 )]
+offset = Vector3( 5, 5, 5 )
 
 [node name="coolcar" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.80673, 0 )

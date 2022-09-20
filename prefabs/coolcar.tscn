@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Car Models/lightFront.material" type="Material" id=1]
 [ext_resource path="res://Assets/Car Models/_defaultMat.material" type="Material" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Assets/Car Models/plastic.material" type="Material" id=6]
 [ext_resource path="res://Assets/Car Models/lightBack.material" type="Material" id=7]
 [ext_resource path="res://Assets/Car Models/paintWhite.material" type="Material" id=8]
-[ext_resource path="res://prefabs/coolcar.gd" type="Script" id=9]
+[ext_resource path="res://scripts/coolcar.gd" type="Script" id=9]
+[ext_resource path="res://prefabs/smoke_particles.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "police_Mesh grill"
@@ -269,3 +270,6 @@ skeleton = NodePath("../../police_mesh")
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.31134e-08, 0.2, 0.15 )
 shape = SubResource( 4 )
+
+[node name="smoke_particles" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588592, -0.00222546, -1.10172 )
