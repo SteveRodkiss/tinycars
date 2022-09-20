@@ -33,4 +33,4 @@ func apply_engine_forces():
 	back_left_wheel.engine_force = force_left * engine_power
 	var rpm_right = back_right_wheel.get_rpm()
 	var force_right  = throttle_input * (1.0 - rpm_right/max_rpm)
-	back_left_wheel.engine_force = force_right * engine_power
+	back_right_wheel.engine_force = force_right * engine_power
