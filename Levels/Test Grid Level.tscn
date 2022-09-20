@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Prefabs/Racetrack Mesh Libary.tres" type="MeshLibrary" id=1]
-[ext_resource path="res://Prefabs/policecar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/coolcar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/isometric_camera.tscn" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
-[node name="policecar" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7092, 3.15244, -1.00956 )
+[node name="isometric_camera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.761562, -0.373099, 0.529925, 0, 0.817669, 0.575688, -0.648092, -0.438422, 0.622706, 27, 13.58, 14.513 )
 
-[node name="Camera" type="Camera" parent="policecar"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16978, 6.02313 )
+[node name="coolcar" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5142, 0.491146, 0 )
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7038, -5.07584, 2.46391 )
