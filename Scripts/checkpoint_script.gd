@@ -11,7 +11,7 @@ func _ready():
 
 func _on_Area_area_entered(area):
 	$Area.set_deferred("monitoring", false)
-	emit_signal("checkpoint_reached", area.global_transform)
+	emit_signal("checkpoint_reached", area.global_translation)
 
 func is_enabled():
 	$Area.set_deferred("monitoring", true)

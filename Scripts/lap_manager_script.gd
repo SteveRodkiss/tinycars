@@ -26,20 +26,20 @@ func _ready():
 	
 	emit_signal("race_start", checkpoint_nodes.size(), max_laps)
 
-func _on_checkpoint_reached(respawn_position):
+func _on_checkpoint_reached(respawn_translation):
 	checkpoints_reached += 1
 	if checkpoints_reached == checkpoint_nodes.size():
 		lap_enabled()
 	print("checkpoint " + String(checkpoints_reached) + "/" + String(checkpoint_nodes.size()))
-	emit_signal("update_ui_information", null, checkpoints_reached, laps_completed)
+	emit_signal("update_ui_information", respawn_translation, checkpoints_reached, laps_completed)
 		
-func _on_start_gate_reached(respawn_position):
+func _on_start_gate_reached(respawn_translation):
 	laps_completed += 1
 	if laps_completed == max_laps:
 		print("win")
 	else:
 		print("completed lap " + String(laps_completed))
-		emit_signal("update_ui_information", null, 0, laps_completed)
+		emit_signal("update_ui_information", respawn_translation, 0, laps_completed)
 		reset_course()
 
 func lap_enabled():

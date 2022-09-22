@@ -19,5 +19,5 @@ func is_enabled():
 
 
 func _on_Area_area_entered(area):
-	emit_signal("start_gate_reached", area.global_transform)
+	emit_signal("start_gate_reached", area.global_translation)
 	$Area.set_deferred("monitoring", false)

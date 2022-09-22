@@ -18,6 +18,7 @@ target_node = NodePath("../Player")
 offset = Vector3( 20, 20, 20 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5142, 0.491146, 0 )
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -58,6 +59,7 @@ script = ExtResource( 4 )
 max_laps = 2
 
 [node name="Start Gate" parent="Lap Manager" instance=ExtResource( 6 )]
+unique_name_in_owner = true
 
 [node name="Checkpoint" parent="Lap Manager" instance=ExtResource( 5 )]
 transform = Transform( -6.55671e-07, 0, -15, 0, 15, 0, 15, 0, -6.55671e-07, 87.5442, -2, -159.963 )
