@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Prefabs/Racetrack Mesh Libary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://Prefabs/coolcar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/isometric_camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/lap_manager_script.gd" type="Script" id=4]
-[ext_resource path="res://Prefabs/checkpoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/Start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Lap Manager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/ui_script.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/gamemanager_script.gd" type="Script" id=8]
 
@@ -54,21 +52,4 @@ margin_right = 40.0
 margin_bottom = 32.0
 text = "Test"
 
-[node name="Lap Manager" type="Spatial" parent="."]
-script = ExtResource( 4 )
-max_laps = 2
-
-[node name="Start Gate" parent="Lap Manager" instance=ExtResource( 6 )]
-unique_name_in_owner = true
-
-[node name="Checkpoint" parent="Lap Manager" instance=ExtResource( 5 )]
-transform = Transform( -6.55671e-07, 0, -15, 0, 15, 0, 15, 0, -6.55671e-07, 87.5442, -2, -159.963 )
-
-[node name="Checkpoint2" parent="Lap Manager" instance=ExtResource( 5 )]
-transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 16.4402, -2, -77.7432 )
-
-[node name="Checkpoint3" parent="Lap Manager" instance=ExtResource( 5 )]
-transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 196.673, 2.06872, -77.7432 )
-
-[node name="Checkpoint4" parent="Lap Manager" instance=ExtResource( 5 )]
-transform = Transform( -6.55671e-07, 0, 15, 0, 15, 0, -15, 0, -6.55671e-07, 99.4948, 7.66803, 67.4638 )
+[node name="Lap Manager" parent="." instance=ExtResource( 4 )]
