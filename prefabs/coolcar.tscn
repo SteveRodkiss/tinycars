@@ -197,7 +197,7 @@ extents = Vector3( 1, 0.623764, 1.43454 )
 [node name="coolcar" type="VehicleBody"]
 physics_interpolation_mode = 2
 script = ExtResource( 9 )
-engine_power = 1000
+engine_power = 800
 
 [node name="police_mesh" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
