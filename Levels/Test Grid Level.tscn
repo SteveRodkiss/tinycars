@@ -11,10 +11,15 @@
 
 [node name="isometric_camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.761562, -0.373099, 0.529925, 0, 0.817669, 0.575688, -0.648092, -0.438422, 0.622706, 27, 13.58, 14.513 )
-offset = Vector3( 20, 20, 20 )
+visible = false
+offset = Vector3( 8, 8, 8 )
 
 [node name="coolcar" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.5142, 0.491146, 0 )
+
+[node name="Camera" type="Camera" parent="coolcar"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.17462, 0 )
+current = true
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7038, -5.07584, 2.46391 )
