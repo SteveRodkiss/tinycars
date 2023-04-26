@@ -6,7 +6,7 @@ extends Spatial
 # var b = "text"
 var enabled = false
 
-signal start_gate_reached
+signal start_gate_reached(checkpoint_position)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +18,6 @@ func is_enabled():
 	$Area.set_deferred("monitoring", true)
 
 
-func _on_Area_area_entered(_area):
-	emit_signal("start_gate_reached")
+func _on_Area_area_entered(area):
+	emit_signal("start_gate_reached", area.global_translation)
 	$Area.set_deferred("monitoring", false)
